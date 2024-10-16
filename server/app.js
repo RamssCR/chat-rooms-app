@@ -7,12 +7,20 @@ import { PORT } from './config.js'
 const app = express()
 const server = createServer(app)
 const io = new Server(server, {
-    connectionStateRecovery: {}
+    connectionStateRecovery: {},
+    cors: {
+        origin: 'http://localhost:5173'
+    }
 })
 
 const rooms = {}
 
-app.use(cors({ origin: 'http://localhost:5173' }))
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Socket.io chat backend working perfectly',
+        status: 'PRODUCTION'
+    })
+})
 
 io.on('connection', socket => {
     socket.on('join', user => {
