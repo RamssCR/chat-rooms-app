@@ -1,0 +1,54 @@
+@use 'init' as vars;
+
+@mixin theme($theme, $indent: 0) {
+    background-color: $theme;
+    margin-left: $indent;
+}
+
+.all-messages-container{
+    background-color: vars.$messagesBg;
+
+    .messages{
+        padding: 2em 2.5em;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2em;
+        color: vars.$textColor;
+        height: 38em;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+
+        .message-card{
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6em;
+            padding: 0.8em 1.5em;
+            border-radius: 0.3em;
+            text-wrap: wrap;
+            min-width: 10em;
+            max-width: 39em;
+
+            .username{
+                color: vars.$usernameColor;
+            }
+
+            .time{
+                margin: 0.3em 0 0 auto;
+                font-size: 0.9em;
+                color: vars.$usernameColor;
+            }
+        }
+
+        .sender{
+            @include theme(vars.$normalMain, auto);
+        }
+
+        .receiver{
+            @include theme(vars.$chatUI_bg)
+        }
+    }
+}
