@@ -36,15 +36,11 @@ io.on('connection', socket => {
 
         socket.join(room)
         io.to(room).emit('users', rooms[room])
+
+        socket.emit('dialog message', 'Welcome to ChatMong!')    
+        socket.broadcast.emit('dialog message', 'A new user has joined the room')
     })
 
-    // <---- USER WELCOME MESSAGES ---->
-    // Welcoming the user joined
-    socket.emit('dialog message', 'Welcome to ChatMong!')
-
-    // Broadcasting to all users
-    socket.broadcast.emit('dialog message', 'A new user has joined the room')
-    // <---- USER WELCOME MESSAGES ---->
 
     socket.on('sent message', ({ body, room, username, time }) => socket.to(room).emit('received message', {body, username, time}))
 
