@@ -38,7 +38,7 @@ io.on('connection', socket => {
         io.to(room).emit('users', rooms[room])
 
         socket.emit('dialog message', 'Welcome to ChatMong!')    
-        socket.to(room).emit('dialog message', 'A new user has joined the room')
+        socket.to(room).emit('dialog message', `A new user has joined the room ${room}`)
     })
 
 
@@ -49,8 +49,10 @@ io.on('connection', socket => {
         for (const room in rooms) {
             rooms[room] = rooms[room].filter(user => user.id !== socket.id)
             
+            socket.leave(room)
+
             io.to(room).emit('users', rooms[room])
-            io.to(room).emit('dialog message', 'An user just left the room')
+            socket.to(room).emit('dialog message', 'An user just left the room')
         }
     })
 
@@ -58,6 +60,8 @@ io.on('connection', socket => {
     socket.on('disconnect', () => {
         for (const room in rooms) {
             rooms[room] = rooms[room].filter(user => user.id !== socket.id)
+
+            socket.leave(room)
             
             io.to(room).emit('users', rooms[room])
             socket.to(room).emit('dialog message', 'An user just left the room')
