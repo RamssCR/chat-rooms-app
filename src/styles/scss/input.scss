@@ -1,0 +1,57 @@
+@use 'init' as vars;
+
+.input-container{
+    background-color: vars.$chatUI_bg;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7em 1.8em;
+    height: 5.5em;
+    gap: 3em;
+    border-top: 1px solid vars.$headerBorder;
+
+    .user-img-input{
+        display: flex;
+        align-items: center;
+        gap: 1.6em;
+        width: 100%;
+    }
+
+    img{
+        width: 2.7em;
+    }
+
+    .input-message{
+        background-color: vars.$chatUI_bg;
+        filter: brightness(125%);
+        width: 100%;
+        border: 1px solid vars.$headerBorder;
+        font-size: 1em;
+        padding: 0.8em 0.9em;
+        border-radius: 1.5em;
+        color: vars.$textColor;
+        outline: none;
+    }
+
+    .btn-send{
+        border-radius: 50%;
+        width: 4.5em;
+        border: none;
+        height: 4em;
+        background-color: vars.$normalMain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .2s;
+
+        &:hover{
+            cursor: pointer;
+            filter: brightness(110%);
+            box-shadow: 0 0 0.6em vars.$normalMain;
+        }
+
+        img{
+            width: 2em;
+        }
+    }
+}

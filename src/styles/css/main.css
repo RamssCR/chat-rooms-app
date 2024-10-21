@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.login-container .form-login {
+  background-color: #ece4ff;
+  width: 30em;
+  display: flex;
+  flex-direction: column;
+}
+.login-container .form-login .form-title {
+  background-color: #6a32eb;
+  color: #efefef;
+  text-align: center;
+  padding: 0.6em;
+}
+.login-container .form-login .form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 1.5em 2em;
+}
+.login-container .form-login .form-inputs .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.login-container .form-login .form-inputs .input-group label {
+  color: #6a32eb;
+  font-weight: 700;
+}
+.login-container .form-login .form-inputs .input-group .input-field {
+  border: none;
+  background-color: #ece4ff;
+  filter: brightness(104%);
+  border-bottom: 2px solid #6a32eb;
+  padding: 0.5em 0.8em;
+  font-size: 1em;
+  outline: none;
+}
+.login-container .form-login .form-inputs .input-group .input-error {
+  color: #ec1f3b;
+  font-size: 0.9em;
+  margin-top: -0.1em;
+  font-weight: 600;
+}
+.login-container .form-login .form-inputs .btn-join {
+  border: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #efefef;
+  background-color: #6a32eb;
+  padding: 0.6em;
+  border-radius: 0.15em;
+}
+.login-container .form-login .form-inputs .btn-join:hover {
+  cursor: pointer;
+  filter: brightness(104%);
+}
+
+.chat-container {
+  background-color: #1a1a1a;
+  min-height: 85vh;
+  width: 105em;
+  overflow: hidden;
+}
+@media only screen and (width <= 1400px) {
+  .chat-container {
+    width: 75em;
+  }
+}
+@media only screen and (width <= 1400px) {
+  .chat-container {
+    width: 65em;
+  }
+}
+@media only screen and (width <= 900px) {
+  .chat-container {
+    width: 40em;
+  }
+}
+@media only screen and (width <= 600px) {
+  .chat-container {
+    width: 30em;
+  }
+}
+.chat-container .chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em 4em;
+  border-bottom: 2px solid rgba(238, 238, 238, 0.3333333333);
+}
+.chat-container .chat-header .chat-name {
+  color: #efefef;
+  font-size: 2em;
+}
+.chat-container .chat-header .btn-exit {
+  background-color: #6a32eb;
+  border: none;
+  color: #efefef;
+  padding: 0.6em 2em;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.chat-container .chat-header .btn-exit:hover {
+  filter: brightness(110%);
+  cursor: pointer;
+}
+.chat-container .sidebar-messages {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  height: 43.3em;
+}
+@media only screen and (width <= 900px) {
+  .chat-container .sidebar-messages {
+    grid-template-columns: 1fr;
+  }
+}
+.chat-container .sidebar-messages .sidebar {
+  border-right: 1px solid rgba(238, 238, 238, 0.3333333333);
+  padding: 2em 2.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  color: #efefef;
+}
+@media only screen and (width <= 900px) {
+  .chat-container .sidebar-messages .sidebar {
+    display: none;
+  }
+}
+.chat-container .sidebar-messages .room-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.chat-container .sidebar-messages .room-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+.chat-container .sidebar-messages .room-title img {
+  width: 2.2em;
+}
+.chat-container .sidebar-messages .room-title .title {
+  font-size: 1.4em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.chat-container .sidebar-messages .roomname {
+  display: block;
+  background-color: #1a1a1a;
+  filter: brightness(125%);
+  font-size: 1.3em;
+  padding: 0.7em 0.8em;
+  font-weight: 300;
+  border-radius: 0.5em;
+}
+.chat-container .sidebar-messages .users-connected {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.chat-container .sidebar-messages .users-connected .title {
+  font-weight: 400;
+  font-size: 1.7em;
+}
+.chat-container .sidebar-messages .users-connected .users-container {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 27.3em;
+  gap: 0.7em;
+}
+.chat-container .sidebar-messages .users-connected .users-container::-webkit-scrollbar {
+  display: none;
+}
+.chat-container .sidebar-messages .users-connected .user {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #1a1a1a;
+  filter: brightness(125%);
+  padding: 0.7em 0.9em;
+  border-radius: 0.5em;
+  animation: slideIn 0.35s linear;
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-1.3em);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+.chat-container .sidebar-messages .users-connected .username {
+  font-size: 1.2em;
+  font-weight: 300;
+}
+.chat-container .sidebar-messages .users-connected img {
+  width: 2em;
+}
+
+.dialog {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.8em;
+}
+.dialog .message-dialog {
+  color: #ece4ff;
+  font-weight: 600;
+  font-style: italic;
+  border: 1px solid #6a32eb;
+  padding: 0.4em 0.8em;
+  background-color: #6a32eb;
+  border-radius: 0.3em;
+  opacity: 0;
+  animation: flare 2s linear;
+}
+@keyframes flare {
+  0% {
+    transform: translateX(-2em);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(2em);
+  }
+}
+
+.all-messages-container {
+  background-color: #201c29;
+}
+.all-messages-container .messages {
+  padding: 2em 2.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  color: #efefef;
+  height: 38em;
+  overflow-y: scroll;
+}
+.all-messages-container .messages::-webkit-scrollbar {
+  display: none;
+}
+.all-messages-container .messages .message-card {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  padding: 0.8em 1.5em;
+  border-radius: 0.3em;
+  text-wrap: wrap;
+  min-width: 10em;
+  max-width: 39em;
+}
+@media only screen and (width <= 900px) {
+  .all-messages-container .messages .message-card {
+    max-width: 20em;
+  }
+}
+.all-messages-container .messages .message-card .username {
+  color: rgba(238, 238, 238, 0.7333333333);
+}
+.all-messages-container .messages .message-card .time {
+  margin: 0.3em 0 0 auto;
+  font-size: 0.9em;
+  color: rgba(238, 238, 238, 0.7333333333);
+}
+.all-messages-container .messages .sender {
+  background-color: #6a32eb;
+  margin-left: auto;
+}
+.all-messages-container .messages .receiver {
+  background-color: #1a1a1a;
+  margin-left: 0;
+}
+
+.input-container {
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 1.8em;
+  height: 5.5em;
+  gap: 3em;
+  border-top: 1px solid rgba(238, 238, 238, 0.3333333333);
+}
+.input-container .user-img-input {
+  display: flex;
+  align-items: center;
+  gap: 1.6em;
+  width: 100%;
+}
+.input-container img {
+  width: 2.7em;
+}
+.input-container .input-message {
+  background-color: #1a1a1a;
+  filter: brightness(125%);
+  width: 100%;
+  border: 1px solid rgba(238, 238, 238, 0.3333333333);
+  font-size: 1em;
+  padding: 0.8em 0.9em;
+  border-radius: 1.5em;
+  color: #efefef;
+  outline: none;
+}
+.input-container .btn-send {
+  border-radius: 50%;
+  width: 4.5em;
+  border: none;
+  height: 4em;
+  background-color: #6a32eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+.input-container .btn-send:hover {
+  cursor: pointer;
+  filter: brightness(110%);
+  box-shadow: 0 0 0.6em #6a32eb;
+}
+.input-container .btn-send img {
+  width: 2em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", system-ui;
+}
+
+body {
+  font-size: 16px;
+  background-color: #180050;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=main.css.map */
