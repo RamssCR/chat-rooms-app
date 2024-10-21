@@ -1,5 +1,4 @@
 import express from 'express'
-import cors from 'cors'
 import { createServer } from 'node:http'
 import { Server } from 'socket.io'
 import { PORT } from './config.js'
@@ -9,7 +8,7 @@ const server = createServer(app)
 const io = new Server(server, {
     connectionStateRecovery: {},
     cors: {
-        origin: 'http://localhost:5173'
+        origin: 'https://chatmong-rc.onrender.com'
     }
 })
 
